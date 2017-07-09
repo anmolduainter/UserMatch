@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7555855b-22aa-40a0-987b-5e7286da9654" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Register.html" afterPath="$PROJECT_DIR$/Register.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RegisterPref.html" afterPath="$PROJECT_DIR$/RegisterPref.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -39,21 +37,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegisterPref.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RegisterPref.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RegisterPref.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="414">
+              <caret line="37" column="22" lean-forward="false" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="registerPref.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/registerPref.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="23" column="55" lean-forward="true" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
+              <folding>
+                <element signature="e#0#38#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/register.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="57" column="42" lean-forward="false" selection-start-line="57" selection-start-column="42" selection-end-line="57" selection-end-column="42" />
+            <state relative-caret-position="154">
+              <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
                 <marker date="1499624003492" expanded="false" signature="0:38" ph="/** Created by anmol on 9/7/17. ...*/" />
               </folding>
@@ -90,9 +100,10 @@
       <list>
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/RegisterPref.html" />
         <option value="$PROJECT_DIR$/Register.html" />
         <option value="$PROJECT_DIR$/js/register.js" />
+        <option value="$PROJECT_DIR$/js/registerPref.js" />
+        <option value="$PROJECT_DIR$/RegisterPref.html" />
       </list>
     </option>
   </component>
@@ -261,12 +272,12 @@
       <workItem from="1499541951006" duration="100000" />
       <workItem from="1499578089280" duration="4243000" />
       <workItem from="1499592412857" duration="971000" />
-      <workItem from="1499619358680" duration="4644000" />
+      <workItem from="1499619358680" duration="8154000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10005000" />
+    <option name="totallyTimeSpent" value="13515000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="-4" width="1309" height="772" extended-state="6" />
@@ -431,21 +442,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RegisterPref.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/register.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="57" column="42" lean-forward="false" selection-start-line="57" selection-start-column="42" selection-end-line="57" selection-end-column="42" />
+        <state relative-caret-position="154">
+          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
             <marker date="1499624003492" expanded="false" signature="0:38" ph="/** Created by anmol on 9/7/17. ...*/" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/registerPref.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="23" column="55" lean-forward="true" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#38#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RegisterPref.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="37" column="22" lean-forward="false" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
