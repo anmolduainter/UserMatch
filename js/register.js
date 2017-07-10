@@ -9,6 +9,7 @@ let username;
 let password;
 let confirmPassword;
 let buttonRegis;
+let imageUrl;
 let id=-1;
 $(function(){
 
@@ -19,6 +20,7 @@ $(function(){
   password=$('#password');
   confirmPassword=$('#ConfirmPassword');
   buttonRegis=$('#register');
+  imageUrl=$('#profileImage');
   buttonRegis.click(function () {
 
       id=id+1;
@@ -39,16 +41,17 @@ $(function(){
 
 });
 
-function objc(id,username,email,password){
+function objc(id,username,email,password,imageUrl){
     this.id=id;
     this.username=username;
     this.email=email;
     this.password=password;
+    this.imageUrl=imageUrl;
 }
 
 function Register(id){
 
-    arr.push(new objc(id,username.val(),email.val(),password.val()));
+    arr.push(new objc(id,username.val(),email.val(),password.val(),imageUrl.val()));
    saveToLocal()
 
 }

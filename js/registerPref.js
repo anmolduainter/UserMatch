@@ -3,7 +3,7 @@
  */
 
 let button;
-
+let idProfile;
 let arr=[]
 $(function () {
 
@@ -15,8 +15,6 @@ $(function () {
 
 
 
-
-
 });
 
 function retrieve(){
@@ -25,9 +23,11 @@ function retrieve(){
 function clickButt(ev){
 
     let id=arr[arr.length-1].id;
+    idProfile=id;
     let email=arr[arr.length-1].email;
     let username=arr[arr.length-1].username;
     let password=arr[arr.length-1].password;
+    let imageUrl=arr[arr.length-1].imageUrl;
     let genre=$('input[name="genre"]:checked').val()
     let personality=$('input[name="personality"]:checked').val()
     let eat=$('input[name="eat"]:checked').val()
@@ -41,17 +41,22 @@ function clickButt(ev){
 
     arr.splice(arr.length-1,1);
 
-    arr.push(new objc(id,username,email,password,genre,genrePrio,personality,persoanlityPrio,eat,eatPrio,guitar,guitarPrio,travel,travelPrio));
+    arr.push(new objc(id,username,email,password,imageUrl,genre,genrePrio,personality,persoanlityPrio,eat,eatPrio,guitar,guitarPrio,travel,travelPrio));
 
     saveToLocal();
+
+    window.open('Profile.html','_self')
+
+
 }
 
-function objc(id,username,email,password,genre,genrePrio,personality,personalityPrio,eat,eatPrio,guitar,guitarPrio,travel,travelPrio){
+function objc(id,username,email,password,imageUrl,genre,genrePrio,personality,personalityPrio,eat,eatPrio,guitar,guitarPrio,travel,travelPrio){
 
     this.id=id;
     this.username=username;
     this.email=email;
     this.password=password;
+    this.imageUrl=imageUrl;
     this.genre=genre;
     this.genrePrio=genrePrio;
     this.personality=personality;
@@ -67,4 +72,6 @@ function objc(id,username,email,password,genre,genrePrio,personality,personality
 
 function saveToLocal(){
     localStorage.setItem('register',JSON.stringify(arr));
+    localStorage.setItem('IDProfile',idProfile);
 }
+
