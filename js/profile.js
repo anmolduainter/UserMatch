@@ -188,7 +188,7 @@ function putData(StringMatch){
 
     container.append(body);
 
-    getPosts();
+    getPosts(2);
 
    postsTitle=$('#posts_title');
    postsImageUrl=$('#posts_imageUrl');
@@ -207,13 +207,13 @@ function putData(StringMatch){
        else{
            newPost.push(new Postobjc(postsTitle.val(),postsImageUrl.val(),postsTextArea.val()));
            localStorage.setItem('posts',JSON.stringify(newPost));
-           getPosts();
+           getPosts(2);
        }
    });
 
 }
 
-function getPosts() {
+function getPosts(id) {
     let postArr=[];
     let StringPost='';
     postArr=JSON.parse(localStorage.getItem('posts'))
@@ -223,9 +223,10 @@ function getPosts() {
              StringPost=StringPost+`
              <br>
             <hr>
-            <div class="row posts_det">
+            <div class="row posts_det" id="${i}">
             <div class="col text-center">
             <img class="pull-left" src="${postArr[i].imageUrl}" height="300px">
+            <button class="btn btn-danger pull-right" id="delete_post">Delete</button>
             <h1>${postArr[i].title}</h1>
             <h4>${postArr[i].textArea}</h4>
             </div>
@@ -234,12 +235,32 @@ function getPosts() {
          }
 
   //  container.empty();
-     container.append(StringPost);
+    if (id==1) {
+        container.empty();
+        container.append(body);
+        container.append(StringPost)
+    }
+    else{
+        container.append(StringPost);
+    }
+    let deletePost=$('#delete_post');
 
+    deletePost.click(deletePostClick)
 
 
 }
 
+function deletePostClick(ev){
+
+    let id=$(ev.target).parent().parent().attr('id');
+    console.log(id);
+    let getArr=[];
+    getArr=JSON.parse(localStorage.getItem('posts'))
+    getArr.splice(id,1);
+    console.log(getArr);
+    localStorage.setItem('posts',JSON.stringify(getArr))
+    getPosts(1)
+}
 
 function Postobjc(title,imageUrl,textArea){
     this.title=title;
