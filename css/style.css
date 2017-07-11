@@ -1,4 +1,14 @@
-
+body{
+    background: darkkhaki;
+}
 .jumbotron{
     background: transparent;
+}
+#email,#password{
+    min-width: 300px;
+}
+
+#Register{
+    min-width: 150px;
+    font-size: 20px;
 }

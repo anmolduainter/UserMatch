@@ -24,12 +24,18 @@ let postsImageUrl;
 let postsTextArea;
 let submitPost;
 let container;
+let StringMatch=''
 $(function(){
 
     retrieveLocal();
 
-    container=$('.container');
-    getData()
+    if (idProfile==-1){
+        alert("Login First");
+    }
+    else{
+        container=$('.container');
+        getData()
+    }
 
 });
 
@@ -62,7 +68,7 @@ function getData(){
 
     let count=0;
 
-    let StringMatch=''
+
 
     for(i in arr){
 
@@ -141,7 +147,7 @@ function putData(StringMatch){
                     <a class="nav-link" href="#">Posts</a>
                 </li>
                 <li class="nav-item pull-right">
-                    <a class="nav-link" href="#">Logout</a>
+                    <a class="nav-link" id="logOut" href="#">Logout</a>
                 </li>
             </ul>
          </div>
@@ -188,39 +194,48 @@ function putData(StringMatch){
 
     container.append(body);
 
-    getPosts(2);
+    getPosts(idProfile);
 
    postsTitle=$('#posts_title');
    postsImageUrl=$('#posts_imageUrl');
    postsTextArea=$('#posts_textArea');
    submitPost=$('#writePostBtn');
+   let logOut=$('#logOut');
+
+   logOut.click(function(){
+       localStorage.setItem("IDProfile",-1);
+       window.open("index.html","_self");
+   });
 
    submitPost.click(function () {
        let newPost=JSON.parse(localStorage.getItem('posts'))
        if (newPost==null){
             newPost=[];
-            newPost.push(new Postobjc(postsTitle.val(),postsImageUrl.val(),postsTextArea.val()));
+            newPost.push(new Postobjc(idProfile,postsTitle.val(),postsImageUrl.val(),postsTextArea.val()));
             localStorage.setItem('posts',JSON.stringify(newPost));
-            getPosts();
+            getPosts(idProfile,"aftersubmitPost");
 
        }
        else{
-           newPost.push(new Postobjc(postsTitle.val(),postsImageUrl.val(),postsTextArea.val()));
+           newPost.push(new Postobjc(idProfile,postsTitle.val(),postsImageUrl.val(),postsTextArea.val()));
            localStorage.setItem('posts',JSON.stringify(newPost));
-           getPosts(2);
+           getPosts(idProfile,"aftersubmitPost");
        }
    });
 
 }
 
-function getPosts(id) {
+function getPosts(id,a="normal") {
     let postArr=[];
     let StringPost='';
     postArr=JSON.parse(localStorage.getItem('posts'))
 
+    console.log(idProfile);
+    console.log(id);
 
-         for(i in postArr){
-             StringPost=StringPost+`
+         for(i in postArr) {
+             if (postArr[i].id == id) {
+                 StringPost = StringPost + `
              <br>
             <hr>
             <div class="row posts_det" id="${i}">
@@ -232,17 +247,35 @@ function getPosts(id) {
             </div>
              </div>`
 
+             }
+         }
+
+
+         console.log(StringPost)
+
+         if (a=="normal"){
+
+           container.append(StringPost);
+
+         }
+         else if (a=="aftersubmitPost"){
+
+             container.empty();
+             putData(StringMatch);
+            // container.append(StringPost)
+
          }
 
   //  container.empty();
-    if (id==1) {
-        container.empty();
-        container.append(body);
-        container.append(StringPost)
-    }
-    else{
-        container.append(StringPost);
-    }
+   // if (id=="After") {
+           // }
+   //  else{
+   //      container.append(StringPost);
+   //  }
+
+
+
+
     let deletePost=$('#delete_post');
 
     deletePost.click(deletePostClick)
@@ -254,15 +287,16 @@ function deletePostClick(ev){
 
     let id=$(ev.target).parent().parent().attr('id');
     console.log(id);
-    let getArr=[];
-    getArr=JSON.parse(localStorage.getItem('posts'))
-    getArr.splice(id,1);
-    console.log(getArr);
-    localStorage.setItem('posts',JSON.stringify(getArr))
-    getPosts(1)
+     let getArr=[];
+     getArr=JSON.parse(localStorage.getItem('posts'))
+    // getArr.splice(id,1);
+     console.log(getArr);
+    // localStorage.setItem('posts',JSON.stringify(getArr))
+    // getPosts(idProfile,"aftersubmitPost")
 }
 
-function Postobjc(title,imageUrl,textArea){
+function Postobjc(id,title,imageUrl,textArea){
+    this.id=id;
     this.title=title;
     this.imageUrl=imageUrl;
     this.textArea=textArea;
