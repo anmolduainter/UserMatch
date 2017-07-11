@@ -112,7 +112,7 @@ function getData(){
          //   perarr.push(new pushPerobjc(i,percentage));
 
             StringMatch=StringMatch+`<br>
-                 <img src="${arr[i].imageUrl}" height="50px">
+                 <img src="${arr[i].imageUrl}" height="150px">
                  <h5>${arr[i].username}</h5>
                   <h6>Match ${percentage}%</h6>
                     <h6>${arr[i].email}</h6>`
@@ -175,7 +175,7 @@ function putData(StringMatch){
             <button class="btn btn-warning pull-right" id="writePostBtn">Write Post</button>
 
         </div>
-        <div class="col" id="scroll">
+        <div class="col text-center" id="scroll">
            ${StringMatch}
          </div>
        </div>
